@@ -28,10 +28,10 @@ const ListingCard = (props) => {
       <div className={styles.listingDetails}>
         <JobAvatar imgSrc={logo} altText={company} />
         <div className={styles.jobPostingText}>
-          <div className={styles.jobListing}>
+          <p className={styles.jobListing}>
             <span>{company}</span> {newPosition && <Pill title={"New!"} />}{" "}
             {featured && <Pill title="Featured" featured />}
-          </div>
+          </p>
           <p className={styles.jobPosition}>{position}</p>
           <p className={styles.jobDetails}>
             {postedAt} &#8226; {contract} &#8226; {location}
