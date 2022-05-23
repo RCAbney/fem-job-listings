@@ -45,7 +45,7 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <main role="main" className="inner-container">
+      <main className="inner-container">
         <FilterBar
           activeFilters={activeFilters}
           setActiveFilters={setActiveFilters}
