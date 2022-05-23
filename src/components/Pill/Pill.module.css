@@ -1,0 +1,9 @@
+.pill {
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 0.875rem;
+  letter-spacing: -0.107692px;
+  padding: .25rem .5rem 0.1rem;
+  border-radius: .75rem;
+}

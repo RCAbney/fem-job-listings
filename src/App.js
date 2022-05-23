@@ -1,23 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Header from "./components/Header/Header";
+import FilterBar from "./components/FilterBar/FilterBar";
+import JobListings from "./components/JobListings/JobListings";
 
 function App() {
+  const [activeFilters, setActiveFilters] = useState([]);
+  const [listings, setListings] = useState([]);
+
+  const handleTagClick = (item) => {
+    if (activeFilters.includes(item)) return false;
+    setActiveFilters([...activeFilters, item]);
+  };
+
+  const handleFilterCloseClick = (item) => {
+    const newArr = activeFilters.filter(
+      (activeFilter) => activeFilter !== item
+    );
+    setActiveFilters(newArr);
+  };
+
+  const filteredListings = listings.filter((listing) => {
+    return activeFilters.every((v) => listing.filterValues.includes(v));
+  });
+
+  useEffect(() => {
+    const fetchListings = async () => {
+      const response = await fetch("/data/data.json");
+      const json = await response.json();
+      const addFilterValues = () => {
+        for (let i = 0; i < json.length; i++) {
+          json[i].filterValues = json[i].languages
+            .concat(json[i].tools)
+            .concat(json[i].role)
+            .concat(json[i].level);
+        }
+      };
+      addFilterValues();
+      setListings(json);
+    };
+    fetchListings();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      <div className="inner-container">
+        <FilterBar
+          activeFilters={activeFilters}
+          setActiveFilters={setActiveFilters}
+          handleFilterCloseClick={handleFilterCloseClick}
+        />
+        {activeFilters.length > 0 ? (
+          <JobListings
+            listings={filteredListings}
+            handleTagClick={handleTagClick}
+          />
+        ) : (
+          <JobListings listings={listings} handleTagClick={handleTagClick} />
+        )}
+      </div>
     </div>
   );
 }

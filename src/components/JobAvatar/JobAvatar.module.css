@@ -1,0 +1,21 @@
+.avatar {
+  border-radius: 50%;
+}
+
+.avatarMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .avatar {
+    display: none;
+  }
+  .avatarMobile {
+    display: block;
+    max-width: 48px;
+    height: auto;
+    position: absolute;
+    top: -1.5rem;
+    left: 1.5rem;
+  }
+}
