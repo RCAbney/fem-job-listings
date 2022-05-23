@@ -3,7 +3,7 @@ import styles from "./JobListings.module.css";
 
 const JobListings = ({ listings, handleTagClick }) => {
   return (
-    <div className={styles.listingsWrap}>
+    <section className={styles.listingsWrap}>
       {listings &&
         listings.map((listing) => (
           <ListingCard
@@ -12,7 +12,7 @@ const JobListings = ({ listings, handleTagClick }) => {
             handleTagClick={handleTagClick}
           />
         ))}
-    </div>
+    </section>
   );
 };
 

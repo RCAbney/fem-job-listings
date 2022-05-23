@@ -23,7 +23,7 @@ const ListingCard = (props) => {
   const handleTagClick = props.handleTagClick;
 
   return (
-    <div className={`${styles.listingCard} ${featured && styles.featured}`}>
+    <article className={`${styles.listingCard} ${featured && styles.featured}`}>
       <JobAvatar imgSrc={logo} altText={company} mobile />
       <div className={styles.listingDetails}>
         <JobAvatar imgSrc={logo} altText={company} />
@@ -32,7 +32,7 @@ const ListingCard = (props) => {
             <span>{company}</span> {newPosition && <Pill title={"New!"} />}{" "}
             {featured && <Pill title="Featured" featured />}
           </div>
-          <p className={styles.jobPosition}>{position}</p>
+          <h1 className={styles.jobPosition}>{position}</h1>
           <p className={styles.jobDetails}>
             {postedAt} &#8226; {contract} &#8226; {location}
           </p>
@@ -58,7 +58,7 @@ const ListingCard = (props) => {
             );
           })}
       </div>
-    </div>
+    </article>
   );
 };
 
