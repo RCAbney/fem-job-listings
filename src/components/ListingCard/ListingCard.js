@@ -32,7 +32,7 @@ const ListingCard = (props) => {
             <span>{company}</span> {newPosition && <Pill title={"New!"} />}{" "}
             {featured && <Pill title="Featured" featured />}
           </p>
-          <p className={styles.jobPosition}>{position}</p>
+          <h2 className={styles.jobPosition}>{position}</h2>
           <p className={styles.jobDetails}>
             {postedAt} &#8226; {contract} &#8226; {location}
           </p>
