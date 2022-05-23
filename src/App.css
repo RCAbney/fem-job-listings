@@ -4,8 +4,5 @@
   padding-bottom: 4rem;
 }
 
-.app {
-  background-color: hsl(180, 52%, 96%);
-  margin: 0 auto;
-  height: 100vh;
+.app {  margin: 0 auto;
 }
