@@ -1,7 +1,7 @@
 import styles from "./Header.module.css";
 
 const Header = () => {
-  return <header className={styles.header} />;
+  return <header role="banner" className={styles.header} />;
 };
 
 export default Header;

@@ -45,7 +45,7 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <div className="inner-container">
+      <main role="main" className="inner-container">
         <FilterBar
           activeFilters={activeFilters}
           setActiveFilters={setActiveFilters}
@@ -59,7 +59,7 @@ function App() {
         ) : (
           <JobListings listings={listings} handleTagClick={handleTagClick} />
         )}
-      </div>
+      </main>
     </div>
   );
 }
